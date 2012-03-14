@@ -1,20 +1,3 @@
-<!---<!DOCTYPE html>
-<html>
-    <head>
-        <link href='//fonts.googleapis.com/css?family=Aclonica' rel='stylesheet' type='text/css'>
-        <link href='//fonts.googleapis.com/css?family=Days+One' rel='stylesheet' type='text/css'>
-        <link rel=stylesheet href='style.css' type='text/css'>
-        <title> Playlog Stats </title>
-    </head>
-    <body>
-        <div id="nav">
-            <ul>
-                <li><a href='index.php'>Main</a></li>
-                <li><a href='achievements.php'>Achievements</a></li>
-                <li><a href='playlog_stats.php'>Playlog Stats</a></li>
-                <li><a href='userpage.php'>User Achievements</a></li>
-            </ul>
-        </div>-->
 <?php
     require_once("template.php");
     echo head( "Playlog" );

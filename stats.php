@@ -14,6 +14,9 @@ class Statistics {
      * Connects to database.
      ***/
     function __construct( $app ) {
+        if(!$app ){
+            $app = 1;
+        }
         $this->app = $app;
         $this->db = mysql_connect( DB_HOST, DB_USER, DB_PASS);
         if( !$this->db )
@@ -85,13 +88,13 @@ class Statistics {
      * Get User's Achievements
      ***/
     function getUserAchieve( $user ){
-        //$query = USR_ACHIEVE . "'" . $usr . "' and t2.app_id='" . $this->app . "'";
         if( is_numeric($user) ) {
             $query = USR_ACHIEVE . $user ." and t2.app_id=" . $this->app; 
         }
         else {
-            $query = USR_ACHIEVE_NAME . "'" . $user . "' AND t2.app_id=" . $this->app;
+            $query = USR_ACHIEVE_NAME . "'" . $user ."'";
         }
+
         $result = mysql_query( $query ) or die( "Query Failed: " . mysql_error());
 
         //Error, no result.
@@ -118,6 +121,7 @@ class Statistics {
         }
         if( !$myresults ){
             echo "<script>placePoints( 0 ); placeUser('$user' );</script>";
+            echo "<script>no_stats()</script>";
             return;
         }
         else {

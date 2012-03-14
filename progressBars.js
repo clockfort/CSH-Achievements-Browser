@@ -44,6 +44,15 @@ function noDetailList( title, max, prog, id ){
     con.appendChild(list);
 }
 
+/*** 
+ * No statistics.
+ ***/
+function no_stats() {
+    var txt = document.createTextNode( "This user has no statistics here. At this time. Keep playing!" );
+    document.getElementById( "container" ).appendChild( txt );
+    
+}
+
 /** 
  * Put the total points earned at top of screen
  */

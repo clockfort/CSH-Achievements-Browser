@@ -17,10 +17,17 @@
         connect();
         $query = CHARACTER_DETAIL . "'". $user . "' GROUP BY race, role, align, gender ORDER BY COUNT(align) DESC LIMIT 5";
         echo "<h2>Top 5 Played Characters</h2>";
-        echo "<ul>";
         $result = mysql_query($query) or die('Query Failed: ' . mysql_error());
+        if( !$result || count($result) < 1 ){
+            echo "You don't play this game, do you? No stats available.";
+            return;
+        }
+        echo "<ul>";
         while($c = mysql_fetch_array($result, MYSQL_ASSOC))
         {
+            if( !$c['role'] ){
+                echo "<scirpt>no_stats()</script>";
+            }
             echo "<li>";
             echo $c['role'] . " " . $c['race'] . " " . $c['gender'] . " - Played " . $c['COUNT(align)'] . " Times"; 
             echo "</li>";
@@ -35,6 +42,10 @@
         echo "<h2> Best Game: </h2>";
         while( $c = mysql_fetch_array($result, MYSQL_ASSOC))
         {
+            if( !$c['role'] ){
+                echo "<script>no_stats();</script>";
+                return;
+            }
             echo "<h3>".$c['role'] . " " . $c['race'] . " " . $c['gender'] . " - With a score of: " . $c['MAX(points)'] . " Points (LVL: ". $c['maxlvl'] . ")</h3>";
             echo "<p>" . $c['death'] . " in  " . $c['deathdungeon'] ."</p>";
             echo "<p>". $c['starttime'] . " - " . $c['endtime'] . "</p>";
