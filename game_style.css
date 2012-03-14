@@ -1,0 +1,119 @@
+body {
+    background-color: #D89E36;
+}
+#nav {
+    background-color: rgba(0,0,0,.50);
+    height: 30px;
+    font-family: Arial, sans-serif;
+}
+#nav ul {
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+}
+#nav ul li {
+    display: inline;
+    list-style-type: none;
+    padding-right: 30px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    float: right;
+}
+#nav a {
+    color: white;
+    text-decoration: none;
+}
+#nav li a:hover {
+    color: #FFD34E;
+}
+#meta-container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    width: 800px;
+}
+#meta-container h1 {
+    color: #FFD34E;
+    font-family: 'Days One', sans-serif;
+    font-size: 60px;
+}
+#container {
+    background-color: #FFD34E;
+    margin-top: -58px;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    overflow: none;
+}
+#gAchieve {
+    width:450px;
+    margin-right: 20px;
+    float: left;
+}
+#gTopUser{
+    width:260px;
+    margin-left: 10px;
+    float: left;
+}
+#container h2 {
+    color: #105B63;
+    font-family: 'Aclonica', sans-serif;
+    font-size: 30px;
+}
+#contianer ul {
+    list-style-type: none;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+#container li {
+    list-style-type: none;
+    color: #BD4932;
+    font-family: Arial, sans-serif;
+    margin-left: -30px;
+    padding-left: 0px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding-right: 30px;
+}
+#container p {
+    color: #BD4932;
+    font-family: Arial, sans-serif;
+}
+#container a {
+    text-decoration: none;
+}
+#username {
+    text-shadow: -3px -1px 2px #D89E36;
+    filter: dropshadow(color=#c722c7, offx=3, offy=2);
+    /*color: #8D4932;*/
+}
+#users {
+    padding: 35px;
+}
+#users a {
+    text-decoration: none;
+    color: #BD4932;
+}
+.progbar {
+    height: 20px;
+    margin-top: -20px;
+    background-color: #FFFAD5;
+}
+.achieve_link { 
+    text-decoration: none;
+    color: #BD4932;
+}
+.achievement {
+    background-color: #FFFAD5;
+    padding: 1px 5px 1px 5px;
+}
+.achievement h3 {
+    font-family: Arial, sans-serif;
+    color: #BD4932;
+}
+#point {
+    text-align: right;
+    color: #105B63;
+    margin-right: 20px;
+}
