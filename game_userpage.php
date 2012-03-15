@@ -1,6 +1,4 @@
 <?php
-    error_reporting( E_ALL );
-    ini_set( 'display_errors', '1' );
     require_once("template.php");
     require_once("stats.php");
     echo head("User Achievements");
@@ -19,7 +17,6 @@
         $user = ( !empty($_GET['user'] ) ? $_GET['user'] : $_SERVER['REMOTE_USER']);
             echo "<h1>User: <span id='username'></span>.</h1>
         <div id='container'>
-            <p>See their <a href='playlog_stats.php?user=". $user ."'>Playlog!</a></p>
             <h2> <span id='point_count'></span> Points! </h2>
             <h2> Achievements </h2>
             <ul id='achieve_comp'>
