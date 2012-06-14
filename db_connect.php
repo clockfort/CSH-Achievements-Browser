@@ -75,7 +75,7 @@
      ****/
     function retrieve_achieves( $app_id ){
         connect();
-        $query = GET_ACHIEVES . $app_id . " LIMIT 25";
+        $query = GET_ACHIEVES . mysql_real_escape_string($app_id) . " LIMIT 25";
         $result = mysql_query( $query ) or die( "Query Failed: " . mysql_error() );
         if( !$result ) {
             return;
@@ -96,7 +96,7 @@
      ****/
     function retrieve_user_achieves( $user ){
         connect();
-        $query = USR_ACHIEVE ."'". $user . "'";
+        $query = USR_ACHIEVE ."'". mysql_real_escape_string($user) . "'";
         $result = mysql_query( $query ) or die( "Query failed:" . mysql_error() );
         if( !$result ){
             return;
@@ -123,7 +123,7 @@
      ****/
     function app_user_count( $game ){
        connect();
-       $query = NUM_USERS_APP ."'". $game . "'";
+       $query = NUM_USERS_APP ."'". mysql_real_escape_string($game) . "'";
        $result = mysql_query( $query ) or die( "Query failed:" . mysql_error() );
         if( !$result ){
             echo "No result.";
@@ -141,7 +141,7 @@
      ****/
     function app_ach_count( $game ){
         connect();
-        $query = NUM_ACHS_APP . "'" . $game . "'";
+        $query = NUM_ACHS_APP . "'" . mysql_real_escape_string($game) . "'";
         $result = mysql_query( $query ) or die( "Query failed: " . mysql_error() );
         if( !$result ){
             echo "No result.";
