@@ -1,11 +1,12 @@
 <?php 
     require_once( "template.php" );
+    include_once( "db_connect.php" );
     echo head( "Achievements" );
     echo statScripts();
     echo nav();
 ?>
         <div id="meta-container">
-        <h1>nethack</h1>
+        <h1><?php echo appID_to_name($_GET['app']); ?></h1>
         <div id="container">
         <script> console.log("Loaded."); </script>
             <?php 

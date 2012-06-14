@@ -24,12 +24,12 @@
         if (!empty($_GET['app'])){
             $ach = "game_achievements.php?app=" . $_GET['app'];
             $usr = "game_userpage.php?app=". $_GET['app'];
-            $nav .= "<li><a href=$ach>Achievements</a></li>
-                    <li><a href=$usr>User Achievements</a></li>";
+            $nav .= "<li><a href=$ach>Achievements</a></li>";
+//                    <li><a href=$usr>User Achievements</a></li>";
             if( $_GET['app'] == 1 ){
                 $nav .= "<li><a href='playlog_stats.php?app=1'>Playlog Stats</a></li>";
-                $nav .= "<li><a href='game_page.php?app=1'>Game Page</a></li>";
             }
+	    $nav .= "<li><a href='game_page.php?app=1'>Game Page</a></li>";
         }
         $nav .= "<li><a href='index.php'>Main</a></li>
             </ul>

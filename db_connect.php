@@ -1,6 +1,7 @@
 <?php
-    include( 'db_config.php' );
-    include( 'db_queries.php' );
+    include_once( 'db_config.php' );
+    include_once( 'db_queries.php' );
+    include_once( 'game_queries.php' );
 
     ini_set( "display errors", "on" );
     error_reporting( E_ALL );
@@ -55,6 +56,14 @@
         }
 
         echo "</ul>";
+    }
+
+    function appID_to_name ( $app_id ){
+    	connect();
+	$query = sprintf ("SELECT `name` FROM `apps` WHERE `id` = '%s'", mysql_real_escape_string($app_id));
+	$result = mysql_query( $query ) or die( 'Query Failed: ' .mysql_error() );
+	$row = mysql_fetch_array( $result, MYSQL_ASSOC );
+	return $row['name'];
     }
 
 /**********************************

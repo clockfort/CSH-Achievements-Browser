@@ -9,12 +9,12 @@
         WHERE app_id=" );
     
     // Fetch all achievements for a given user
-    DEFINE( 'USR_ACHIEVE', 
+/*    DEFINE( 'USR_ACHIEVE', 
         "SELECT t2.title, t2.progress_max, t1.progress, t2.score, t1.user_id, t2.app_id 
         FROM (achievement_progress AS t1 INNER JOIN achievements AS t2 on t1.achievement_id=t2.id) 
         JOIN users AS t3 on t1.user_id=t3.id 
         WHERE t1.progress!=0 and t3.username=" );
-
+*/
     // Fetch #users in selected App
     DEFINE( 'NUM_USERS_APP' , 
         "SELECT count(t1.user_id) 

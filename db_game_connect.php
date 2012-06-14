@@ -1,5 +1,5 @@
 <?php
-include( 'db_config.php' );
+include_once( 'db_config.php' );
 require_once( 'game_queries.php' );
     ini_set("display errors", "on");
     error_reporting(E_ALL);
