@@ -75,7 +75,7 @@ class Statistics {
         // Print out achievement information
         while( $a = mysql_fetch_array( $result, MYSQL_ASSOC )){
             echo "<div class='achievement'>";
-            echo "<h3>" . $a['title'];
+            echo "<h3>" . $a['title'] ." ";
             echo "<span id='point'>" . $a['score'] . " Points</psan>";
             echo "</h3>";
             echo "<p>" . $a['description'] . "</p>";
