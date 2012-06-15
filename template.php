@@ -29,7 +29,7 @@
             if( $_GET['app'] == 1 ){
                 $nav .= "<li><a href='playlog_stats.php?app=1'>Playlog Stats</a></li>";
             }
-	    $nav .= "<li><a href='game_page.php?app=1'>Game Page</a></li>";
+	    $nav .= "<li><a href='game_page.php?app=". $_GET['app'] ."'>Game Page</a></li>";
         }
         $nav .= "<li><a href='index.php'>Main</a></li>
             </ul>

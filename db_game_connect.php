@@ -98,9 +98,10 @@ function mostAchievements() {
 /** 
  * Query for top most-point users 
  */
-function topUsers() {
+function topUsers($app_id) {
     connect();
-    $query = G_SCOREUSERS;
+    $query = "SELECT SUM(t3.score), t1.username FROM (users AS t1 INNER JOIN achievement_progress AS t2 ON t1.id=t2.user_id) INNER JOIN achievements AS t3 ON t2.achievement_id=t3.id WHERE t2.progress=t3.progress_max and app_id='" . mysql_real_escape_string($app_id) . "' GROUP BY t1.id ORDER BY SUM(t3.score) DESC, t2.updated_at DESC LIMIT 10";
+#    $query = G_SCOREUSERS;
     $result = mysql_query($query) or die('Query Failed: ' . mysql_error());
     while($t = mysql_fetch_array($result, MYSQL_ASSOC))
     {
@@ -111,9 +112,10 @@ function topUsers() {
 /**
  * Query the database for which achievements have the most holders.
  */ 
-function globalAchievements() {
+function globalAchievements($app_id) {
     connect();
     $query = G_PROGRESS;
+    $query = "SELECT t2.title, COUNT(user_id) FROM achievement_progress AS t1 JOIN achievements AS t2 ON t1.achievement_id=t2.id WHERE t1.progress=t2.progress_max and app_id='". mysql_real_escape_string($app_id) ."' GROUP BY t1.achievement_id ORDER BY COUNT(user_id) DESC LIMIT 10";
 
     $result = mysql_query($query) or die('Query Failed: ' . mysql_error());
     while( $glo = mysql_fetch_array($result, MYSQL_ASSOC))
@@ -168,9 +170,9 @@ function userAchievements( $user ) {
 /**
  * 5 Recent Achievements 
  */
-function recentAchievements() {
+function recentAchievements($app_id) {
     connect();
-    $query = RECENT;
+    $query = "SELECT t2.title, t3.username FROM (achievement_progress AS t1 INNER JOIN achievements AS t2 ON t1.achievement_id=t2.id ) INNER JOIN users AS t3 ON t1.user_id=t3.id WHERE t1.progress=t2.progress_max and app_id='" . mysql_real_escape_string($app_id) . "' ORDER BY t1.updated_at DESC LIMIT 5";
     $result = mysql_query($query) or die('Query Failed: ' . mysql_error());
     while($rec = mysql_fetch_array($result, MYSQL_ASSOC)){
         echo "<li>";

@@ -1,13 +1,14 @@
 <?php 
     require_once( "template.php" );
-    require_once("db_game_connect.php"); 
+    require_once("db_game_connect.php");
+    include_once( "db_connect.php" );
     echo head("Nethack Page");
     echo statScripts();
     echo nav(); 
 ?>
 
     <div id="meta-container">
-        <h1> Achievements </h1>
+        <h1><?php echo appID_to_name($_GET['app']); ?></h1>
     <div id="container">
         <div id="gAchieve">
             <h2> Top Achievements </h2>
@@ -20,12 +21,12 @@
             </ul>
         </div>
         <h2> Recent Achievements</h2>
-        <ul><?php recentAchievements(); ?></ul>
+        <ul><?php recentAchievements($_GET['app']); ?></ul>
     </div>
     </div>
     </body>
     <?php 
-        globalAchievements();
-        topUsers();
+        globalAchievements($_GET['app']);
+        topUsers($_GET['app']);
     ?>
 </html>
