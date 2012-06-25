@@ -42,7 +42,7 @@
                 $title_str = "<a href='../nethack'>Nethack</a>";
             }
             else {*/
-                $title_str = "<a href='game_achievements?app=" . $a['id'] . "'>". $a['name'] . "</a>";
+                $title_str = "<a href='game_page?app=" . $a['id'] . "'>". $a['name'] . "</a>";
            // }
             echo "<div class='game_title'><h2>".$title_str."</h2>";
             app_user_count( $a['name'] );
