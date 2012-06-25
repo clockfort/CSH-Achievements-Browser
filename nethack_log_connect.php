@@ -37,7 +37,8 @@
 
     function bestGame( $user ){
         connect();
-        $query = BEST_GAME . "'" . $user ."'";
+        $user = mysql_real_escape_string($user);
+        $query = "SELECT gender, align, role, race, points, death, deathdungeon, starttime, endtime, maxlvl FROM playlog WHERE name=" . "'" . $user ."'" . " and points=(SELECT MAX(points) FROM playlog where name=". "'" . $user . "'" . ")";
         $result = mysql_query($query) or die("Query Failed: " . mysql_error());
         echo "<h2> Best Game: </h2>";
         while( $c = mysql_fetch_array($result, MYSQL_ASSOC))
@@ -46,7 +47,7 @@
                 echo "<script>no_stats();</script>";
                 return;
             }
-            echo "<h3>".$c['role'] . " " . $c['race'] . " " . $c['gender'] . " - With a score of: " . $c['MAX(points)'] . " Points (LVL: ". $c['maxlvl'] . ")</h3>";
+            echo "<h3>".$c['role'] . " " . $c['race'] . " " . $c['gender'] . " - With a score of: " . $c['points'] . " Points (LVL: ". $c['maxlvl'] . ")</h3>";
             echo "<p>" . $c['death'] . " in  " . $c['deathdungeon'] ."</p>";
             echo "<p>". $c['starttime'] . " - " . $c['endtime'] . "</p>";
         }
