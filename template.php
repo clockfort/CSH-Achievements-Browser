@@ -26,8 +26,9 @@
             $usr = "game_userpage.php?app=". $_GET['app'];
             $nav .= "<li><a href=$ach>Achievements</a></li>";
 //                    <li><a href=$usr>User Achievements</a></li>";
-            if( $_GET['app'] == 1 ){
-                $nav .= "<li><a href='playlog_stats.php?app=1'>Playlog Stats</a></li>";
+            if( $_GET['app'] == 1 ){ //Nethack has a playlog, and binges
+		$nav .= "<li><a href='binge_highscores.php?app=1'>Binge Highscores</a></li>";
+		$nav .= "<li><a href='playlog_stats.php?app=1'>Playlog Stats</a></li>";
             }
 	    $nav .= "<li><a href='game_page.php?app=". $_GET['app'] ."'>Game Page</a></li>";
         }
