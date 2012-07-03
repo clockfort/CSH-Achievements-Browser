@@ -12,6 +12,7 @@
         }
         mysql_select_db('nethack');
     }
+
     // Acquire Top 5 Most Played Characters
     function topCharacters( $user ){
         connect();
@@ -67,7 +68,7 @@
 	                echo "<script>no_stats();</script>";
 	                return;
 	            }
-	            echo "<h3>".$c['name'].": ".$c['role'] . " " . $c['race'] . " " . $c['gender'] . " - With a score of: " . $c['points'] . " Points (LVL: ". $c['maxlvl'] . ")</h3>";
+	            echo "<h3><a href=\"playlog_stats.php?app=1&user=".$c['name']."\">".$c['name']."</a>: ".$c['role'] . " " . $c['race'] . " " . $c['gender'] . " - With a score of: " . $c['points'] . " Points (LVL: ". $c['maxlvl'] . ")</h3>";
 	            echo "<p>" . $c['death'] . " in  " . $c['deathdungeon'] ."</p>";
 	#            echo "<p>". $c['starttime'] . " - " . $c['endtime'] . "</p>";
 	        }
