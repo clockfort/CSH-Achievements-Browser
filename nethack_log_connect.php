@@ -57,7 +57,7 @@
 
     function bingeScores( $startTime, $endTime ){
         connect();
-        $query = "SELECT name, gender, align, role, race, points, death, deathdungeon, starttime, endtime, maxlvl FROM playlog WHERE starttime >= '2012-07-01 14:00:00' and endtime <= '2012-07-04 02:00:00'   ORDER BY `points` DESC";
+        $query = "SELECT name, gender, align, role, race, points, death, deathdungeon, starttime, endtime, maxlvl FROM playlog WHERE starttime >= '2012-07-03 14:00:00' and endtime <= '2012-07-04 02:00:00'   ORDER BY `points` DESC";
         $result = mysql_query($query) or die("Query Failed: " . mysql_error());
         echo "<h2>High Scores (Updated on death):</h2>";
         while( $c = mysql_fetch_array($result, MYSQL_ASSOC))
