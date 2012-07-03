@@ -11,7 +11,7 @@
             <?php 
                 require_once("nethack_log_connect.php");
                 //topCharacters( (!empty($_GET['user']) ? $_GET['user'] : $_SERVER['REMOTE_USER']));
-                //bestGame( (!empty($_GET['user']) ? $_GET['user'] : $_SERVER['REMOTE_USER']));
+                bingeScores("","");
             ?>
         </div>
         </div>

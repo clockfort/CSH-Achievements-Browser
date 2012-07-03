@@ -53,4 +53,24 @@
         }
 
     }
+
+
+    function bingeScores( $startTime, $endTime ){
+        connect();
+        $query = "SELECT name, gender, align, role, race, points, death, deathdungeon, starttime, endtime, maxlvl FROM playlog WHERE starttime >= '2012-07-01 14:00:00' and endtime <= '2012-07-04 02:00:00'   ORDER BY `points` DESC";
+        $result = mysql_query($query) or die("Query Failed: " . mysql_error());
+        echo "<h2>High Scores (Updated on death):</h2>";
+        while( $c = mysql_fetch_array($result, MYSQL_ASSOC))
+        {
+            if( !$c['role'] ){
+                echo "<script>no_stats();</script>";
+                return;
+            }
+            echo "<h3>".$c['name'].": ".$c['role'] . " " . $c['race'] . " " . $c['gender'] . " - With a score of: " . $c['points'] . " Points (LVL: ". $c['maxlvl'] . ")</h3>";
+            echo "<p>" . $c['death'] . " in  " . $c['deathdungeon'] ."</p>";
+#            echo "<p>". $c['starttime'] . " - " . $c['endtime'] . "</p>";
+        }
+
+    }
+
 ?>
