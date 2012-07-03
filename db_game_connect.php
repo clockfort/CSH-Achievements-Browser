@@ -1,6 +1,8 @@
 <?php
 include_once( 'db_config.php' );
+include_once( 'db_connect.php' );
 require_once( 'game_queries.php' );
+
     ini_set("display errors", "on");
     error_reporting(E_ALL);
 
@@ -23,18 +25,6 @@ require_once( 'game_queries.php' );
     $u = mysql_fetch_array($result, MYSQL_ASSOC);
     $a = $u['SUM(score)'];
     DEFINE('MAX_POINTS', $a);
-
-/**
- * Connect to the achievements database
- */ 
-function connect(){
-    $db = mysql_connect(DB_HOST, DB_USER, DB_PASS);
-    if( !$db ) 
-    {
-        die( 'could not connect: ' . mysql_error() );
-    }
-    mysql_select_db('achievements');
-}
 
 /** 
  *  List of achievements and descriptions
